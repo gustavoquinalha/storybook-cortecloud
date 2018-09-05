@@ -1,14 +1,18 @@
 <template>
-  <button class="button-styles" :style="computedStyle" @click="onClick">
+<div class="">
+  <button class="btn" @click="onClick" :style="{borderRadius: this.rounded + 'px'}">
     <slot></slot>
   </button>
+</div>
 </template>
 
 <script>
   export default {
     name: 'my-button',
     props: {
-      rounded: Boolean
+      rounded: {
+        type: String
+      }
     },
     methods: {
       onClick () {
@@ -16,32 +20,21 @@
       }
     },
     computed: {
-      computedStyle () {
-        return {
-          borderRadius: this.rounded ? '8px' : 0
-        }
-      }
     }
   }
 </script>
 
 <story
-  name="Disabled Button"
+  group="Buttons"
+  name="Button"
   methods="{handleClick: action('click')}"
-  knobs="{buttonText: text('Button text', 'initial value')}"
-  notes="You can't touch this">
-  <my-button @click="handleClick" :disabled="false">
+  knobs="{buttonText: text('Button text', 'Button text'), borderRadius: number('Border radius', this.rounded, 10)}"
+  notes="Notes">
+  <my-button @click="handleClick">
     {{ buttonText }}
   </my-button>
 </story>
 
 <style>
-  .button-styles {
-    border: 1px solid #eee;
-    background-color: #fff;
-    cursor: pointer;
-    font-size: 15pt;
-    padding: 3px 10px;
-    margin: 10px;
-  }
+
 </style>

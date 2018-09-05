@@ -1,0 +1,17 @@
+.btn {
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-size: 15pt;
+  padding: 12px 22px;
+  margin: 10px;
+  outline: none;
+  font-size: 14px;
+  transition: .1s;
+}
+.btn:hover {
+  background: #ddd;
+}
+.btn:active {
+  box-shadow: rgba(12, 15, 20, .1) 0px 4px 8px 0px inset;
+}
